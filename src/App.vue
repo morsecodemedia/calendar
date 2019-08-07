@@ -1,6 +1,10 @@
 <template>
   <div id="app">
+    <button @click='displayPeriodUom = "month"'>Month</button>
+    <button @click='displayPeriodUom = "week"'>Week</button>
+    <button @click='displayPeriodUom = "year"'>Year</button>
     <calendar-view
+      :display-period-uom="displayPeriodUom"
       :show-date="showDate"
       :events="events"
       class="theme-default holiday-us-traditional holiday-us-official"
@@ -29,6 +33,7 @@ export default {
     return {
       showDate: new Date(),
       datafeed: null,
+      displayPeriodUom: 'month',
       events: []
     }
   },
