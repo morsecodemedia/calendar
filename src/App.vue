@@ -29,36 +29,36 @@ export default {
     return {
       showDate: new Date(),
       events: [
-				{
-          startDate: "2019-08-06",
-          endDate: "2019-08-06",
-          title: "GSW Philadelphia",
-          classes: "gsw"
-        },
-        {
-          startDate: "2019-01-01",
-          endDate: "2019-08-22",
-          title: "RADICAVA HCP Overhaul Initial Dev",
-          classes: "radicava"
-        },
-        {
-          startDate: "2019-01-01",
-          endDate: "2019-08-22",
-          title: "XPD Patient Overhaul Initial Dev",
-          classes: "xpd"
-        },
-        {
-          startDate: "2019-01-01",
-          endDate: "2019-08-22",
-          title: "Stendra Consumer Landing Page Initial Dev",
-          classes: "stendra"
-        },
-        {
-          startDate: "2019-08-17",
-          endDate: "2019-08-22",
-          title: "Investor Relations (WP) Initial Dev",
-          classes: "stendra"
-        },
+				// {
+        //   startDate: "2019-08-06",
+        //   endDate: "2019-08-06",
+        //   title: "GSW Philadelphia",
+        //   classes: "gsw"
+        // },
+        // {
+        //   startDate: "2019-01-01",
+        //   endDate: "2019-08-22",
+        //   title: "RADICAVA HCP Overhaul Initial Dev",
+        //   classes: "radicava"
+        // },
+        // {
+        //   startDate: "2019-01-01",
+        //   endDate: "2019-08-22",
+        //   title: "XPD Patient Overhaul Initial Dev",
+        //   classes: "xpd"
+        // },
+        // {
+        //   startDate: "2019-01-01",
+        //   endDate: "2019-08-22",
+        //   title: "Stendra Consumer Landing Page Initial Dev",
+        //   classes: "stendra"
+        // },
+        // {
+        //   startDate: "2019-08-17",
+        //   endDate: "2019-08-22",
+        //   title: "Investor Relations (WP) Initial Dev",
+        //   classes: "stendra"
+        // },
       ]
     }
   },
@@ -75,8 +75,17 @@ export default {
     axios
       .get('https://sheetsu.com/apis/v1.0su/ac2b4327279a')
       .then(response => (
-        console.log(response.data)
+        // console.log(response.data)
+        this.events = response.data.map(item => {
+          const event = {}
+          event.startDate = item.initial_dev_start
+          event.endDate = item.initial_dev_end
+          event.title = item.brand + item.project
+          event.classes = item.brand.toLowerCase()
+          return event
+        })
       ))
+    console.log(this.events)
   }
 };
 </script>
