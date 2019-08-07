@@ -48,9 +48,9 @@ export default {
        */
       this.events = data.reduce((acc, item) => {
         const event = {}
-        event.startDate = item.inital_dev_start
+        event.startDate = item.initial_dev_start
         event.endDate = item.initial_dev_end
-        event.title = item.brand + item.project
+        event.title = item.brand + ' ' + item.project
         event.classes = item.brand.toLowerCase()
         /* If we don't have a start date, we skip this one.
          * This can be expanded to make a more robust check.
@@ -77,6 +77,21 @@ export default {
 </script>
 
 <style>
+:root {
+  --white: rgba(255, 255, 255, 1);
+  --black: rgba(0, 0, 0, 1);
+
+  --xpdDarkBlue100: rgba(0, 52, 104, 1);
+  --xpdOrange100: rgba(241, 93, 34, 1);
+
+  --stendraBlue100: rgba(70, 165, 179, 1);
+  --stendraYellow100: rgba(243, 200, 52, 1);
+
+  --gswYellow100: rgba(255, 205, 0, 1);
+
+  --radicavaDarkBlue100: rgba(60, 93, 170, 1);
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #2c3e50;
@@ -87,22 +102,22 @@ export default {
 }
 
 .cv-event.gsw {
-  background-color: yellow;
-  color: black;
+  background-color: var(--gswYellow100);
+  color: var(--black);
 }
 
 .cv-event.radicava {
-  background-color: blue;
-  color: black;
+  background-color: var(--radicavaDarkBlue100);
+  color: var(--white);
 }
 
 .cv-event.xpd {
-  background-color: orange;
-  color: black;
+  background-color: var(--xpdOrange100);
+  color: var(--black);
 }
 
 .cv-event.stendra {
-  background-color: teal;
-  color: black;
+  background-color: var(--stendraBlue100);
+  color: var(--black);
 }
 </style>
